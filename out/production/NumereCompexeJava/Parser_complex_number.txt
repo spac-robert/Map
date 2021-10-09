@@ -1,0 +1,54 @@
+import java.util.Objects;
+
+public class ExpressionParser {
+
+    private static ComplexNumber parseComplexNumber(String str) {
+        double re = 1.0;
+        double im = 1.0;
+        //Generic case
+        if (str.charAt(0) == '-') {
+            re = -1.0;
+            str = str.substring(1);
+        }
+        String[] tokens = str.split("[\\Q+-\\Ei]");
+        if (str.contains("-")) {
+            im = -1.0;
+        }
+        re = re * Double.parseDouble(tokens[0]);
+        im = im * Double.parseDouble(tokens[1]);
+        return new ComplexNumber(re, im);
+    }
+
+    private static ComplexNumber parseReal(String str) {
+        double re = Double.parseDouble(str);
+        return new ComplexNumber(re, 0.0);
+    }
+
+    private static ComplexNumber parseImaginary(double im, String[] tokens) {
+        if(tokens.length<1){
+            return new ComplexNumber(0.0, im);
+        }
+        im *= Double.parseDouble(tokens[0]);
+        return new ComplexNumber(0.0, im);
+    }
+
+    public static void parse(String str) {
+        String str2 = str;
+        if (str.contains("i")) {
+            double im = 1.0;
+            if (str.charAt(0) == '-') {
+                im *= -1;
+                str = str.substring(1);
+            }
+            String[] tokens = str.split("[\\Q+-\\Ei]");
+            if (tokens.length <= 1) {
+                System.out.println(parseImaginary(im, tokens));
+            } else {
+                System.out.println(parseComplexNumber(str2));
+            }
+        } else {
+            System.out.println(parseReal(str));
+        }
+    }
+
+}
