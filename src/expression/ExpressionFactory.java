@@ -17,6 +17,12 @@ public class ExpressionFactory {
         switch (operation) {
             case ADDITION:
                 return new Addition(operation, args);
+            case DIVISION:
+                return new Division(operation, args);
+            case MULTIPLY:
+                return new Multiply(operation,args);
+            case SUBTRACTION:
+                return new Subtraction(operation,args);
             default:
                 break;
         }

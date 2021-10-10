@@ -4,15 +4,19 @@ import entity.ComplexExpression;
 import entity.ComplexNumber;
 import entity.Operation;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class Division extends ComplexExpression {
-    public Division(Operation op, ComplexNumber[] args) {
-        super(op, Arrays.asList(args));
+    public Division(Operation op, List<ComplexNumber> args) {
+        super(op, args);
     }
 
     @Override
     public ComplexNumber executeOneOperation(Operation op) {
-        return null;
+        ComplexNumber complexNumber = args[0];
+        for (int i = 1; i < args.length && args[i] != null; i++) {
+            complexNumber.division(args[i]);
+        }
+        return complexNumber;
     }
 }

@@ -11,8 +11,6 @@ public abstract class ComplexExpression {
         this.args = args.toArray(new ComplexNumber[0]);
     }
 
-    // A + B + C
-    // complexOp(+, [complexOp(+, [a,b]), c])
     public abstract ComplexNumber executeOneOperation(Operation op);
 
     //return the expression result

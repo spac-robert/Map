@@ -22,6 +22,11 @@ public class ComplexNumber {
         this.im += x.getIm();
     }
 
+    public void division(ComplexNumber x) {
+        this.re -= x.getRe();
+        this.im -= x.getIm();
+    }
+
     @Override
     public String toString() {
         return "ComplexNumber{" +

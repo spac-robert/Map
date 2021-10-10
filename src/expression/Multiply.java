@@ -4,12 +4,12 @@ import entity.ComplexExpression;
 import entity.ComplexNumber;
 import entity.Operation;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class Multiply extends ComplexExpression {
 
-    public Multiply(Operation op, ComplexNumber[] args) {
-        super(op, Arrays.asList(args));
+    public Multiply(Operation op, List<ComplexNumber> args) {
+        super(op, args);
     }
 
     @Override

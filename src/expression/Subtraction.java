@@ -4,11 +4,11 @@ import entity.ComplexExpression;
 import entity.ComplexNumber;
 import entity.Operation;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class Subtraction extends ComplexExpression {
-    public Subtraction(Operation op, ComplexNumber[] args) {
-        super(op, Arrays.asList(args));
+    public Subtraction(Operation op, List<ComplexNumber> args) {
+        super(op, args);
     }
 
     @Override
