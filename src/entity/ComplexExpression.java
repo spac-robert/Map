@@ -16,8 +16,8 @@ public abstract class ComplexExpression {
     //return the expression result
     public ComplexNumber execute() {
         ComplexNumber number = args[0];
-        for (int i = 1; args[i] != null; i++) {
-            return executeOneOperation(op,number,args[i]);
+        for (int i = 1; i< args.length && args[i] != null; i++) {
+            number = executeOneOperation(op,number,args[i]);
         }
         return number;
         //return executeOneOperation(op);

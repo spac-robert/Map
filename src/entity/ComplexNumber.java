@@ -35,10 +35,6 @@ public class ComplexNumber {
         this.im = im;
     }
 
-    public void setRe(Double re) {
-        this.re = re;
-    }
-
     public void setIm(Double im) {
         this.im = im;
     }
