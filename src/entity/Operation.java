@@ -1,7 +1,7 @@
 package entity;
 
 public enum Operation {
-    ADDITION("+"), DIVISION("-"), MULTIPLY("*"), SUBTRACTION("/");
+    ADDITION("+"), DIVISION("/"), MULTIPLY("*"), SUBTRACTION("-");
 
     private final String string;
 

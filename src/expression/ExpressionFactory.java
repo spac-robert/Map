@@ -20,9 +20,9 @@ public class ExpressionFactory {
             case DIVISION:
                 return new Division(operation, args);
             case MULTIPLY:
-                return new Multiply(operation,args);
+                return new Multiply(operation, args);
             case SUBTRACTION:
-                return new Subtraction(operation,args);
+                return new Subtraction(operation, args);
             default:
                 break;
         }

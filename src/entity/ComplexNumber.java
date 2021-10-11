@@ -22,9 +22,24 @@ public class ComplexNumber {
         this.im += x.getIm();
     }
 
-    public void division(ComplexNumber x) {
+    public void subtraction(ComplexNumber x) {
         this.re -= x.getRe();
         this.im -= x.getIm();
+    }
+
+    public void multiply(ComplexNumber x) {
+        double re, im;
+        re = this.re * x.getRe() + (-1) * (this.im * x.getIm());
+        im = this.re * x.getIm() + x.getRe() * this.im;
+        this.re = re;
+        this.im = im;
+    }
+
+    public void division(ComplexNumber x) {
+        double sum = x.getRe() * x.getRe() + x.getIm() * x.getIm();
+        multiply(x);
+        this.re /= sum;
+        this.im /= sum;
     }
 
     @Override

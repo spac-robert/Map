@@ -11,15 +11,15 @@ public abstract class ComplexExpression {
         this.args = args.toArray(new ComplexNumber[0]);
     }
 
-    public abstract ComplexNumber executeOneOperation(Operation op);
+    public abstract ComplexNumber executeOneOperation(Operation op, ComplexNumber number, ComplexNumber arg);
 
     //return the expression result
     public ComplexNumber execute() {
-//        ComplexNumber number = args[0];
-//        for (int i = 1; args[i] != null; i++) {
-//            return executeOneOperation(op);
-//        }
-//        return number;
-        return executeOneOperation(op);
+        ComplexNumber number = args[0];
+        for (int i = 1; args[i] != null; i++) {
+            return executeOneOperation(op,number,args[i]);
+        }
+        return number;
+        //return executeOneOperation(op);
     }
 }

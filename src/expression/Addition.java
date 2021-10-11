@@ -11,13 +11,10 @@ public class Addition extends ComplexExpression {
         super(op, args);
     }
 
+    //maybe I don't need the operation as a parameter in executeOneOperation
     @Override
-    public ComplexNumber executeOneOperation(Operation op) {
-
-        ComplexNumber complexNumber = new ComplexNumber(0.0, 0.0);
-        for (ComplexNumber x : this.args) {
-            complexNumber.addition(x);
-        }
-        return complexNumber;
+    public ComplexNumber executeOneOperation(Operation op, ComplexNumber number, ComplexNumber arg) {
+        number.addition(arg);
+        return number;
     }
 }

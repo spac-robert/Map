@@ -12,7 +12,8 @@ public class Subtraction extends ComplexExpression {
     }
 
     @Override
-    public ComplexNumber executeOneOperation(Operation op) {
-        return null;
+    public ComplexNumber executeOneOperation(Operation op, ComplexNumber number, ComplexNumber arg) {
+        number.subtraction(arg);
+        return number;
     }
 }

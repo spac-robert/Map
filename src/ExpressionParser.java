@@ -27,13 +27,14 @@ public class ExpressionParser {
 
     public static ComplexExpression parse(String[] args) {
         List<ComplexNumber> complexNumbers = new LinkedList<>();
-        int j = 0;
+
         for (int i = 0; i < args.length && args[i] != null; i = i + 2) {
             complexNumbers.add(parseComplexNumber(args[i]));
-            j++;
         }
+
         Operation operation = Operation.fromString(args[1]);
         ExpressionFactory expressionFactory = ExpressionFactory.getInstance();
+
         return expressionFactory.createExpression(operation, complexNumbers);
     }
 

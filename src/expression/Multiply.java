@@ -13,7 +13,8 @@ public class Multiply extends ComplexExpression {
     }
 
     @Override
-    public ComplexNumber executeOneOperation(Operation op) {
-        return null;
+    public ComplexNumber executeOneOperation(Operation op, ComplexNumber number, ComplexNumber arg) {
+        number.multiply(arg);
+        return number;
     }
 }

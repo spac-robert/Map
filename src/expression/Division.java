@@ -12,11 +12,8 @@ public class Division extends ComplexExpression {
     }
 
     @Override
-    public ComplexNumber executeOneOperation(Operation op) {
-        ComplexNumber complexNumber = args[0];
-        for (int i = 1; i < args.length && args[i] != null; i++) {
-            complexNumber.division(args[i]);
-        }
-        return complexNumber;
+    public ComplexNumber executeOneOperation(Operation op, ComplexNumber number, ComplexNumber arg) {
+        number.division(arg);
+        return number;
     }
 }
