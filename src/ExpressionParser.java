@@ -33,14 +33,18 @@ public class ExpressionParser {
             if (ValidatorComplexNumber.isValid(args[i])) {
                 complexNumbers.add(parseComplexNumber(args[i]));
             } else {
-                throw  new ValidationException("Nu e bine");
+                throw new ValidationException("Nu e bine");
             }
         }
 
-        Operation operation = Operation.fromString(args[1]);
-        ExpressionFactory expressionFactory = ExpressionFactory.getInstance();
+        try {
+            Operation operation = Operation.fromString(args[1]);
+            ExpressionFactory expressionFactory = ExpressionFactory.getInstance();
 
-        return expressionFactory.createExpression(operation, complexNumbers);
+            return expressionFactory.createExpression(operation, complexNumbers);
+        } catch (IllegalArgumentException e) {
+            throw new ValidationException(e);
+        }
     }
 
 }

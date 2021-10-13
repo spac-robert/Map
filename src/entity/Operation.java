@@ -17,4 +17,8 @@ public enum Operation {
         }
         throw new IllegalArgumentException("Invalid sign" + sign);
     }
+
+    private boolean isNotOperation(String op, String s) {
+       return !s.equals(op);
+    }
 }

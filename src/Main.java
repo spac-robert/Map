@@ -7,7 +7,9 @@ public class Main {
 
         try {
             ComplexExpression result = ExpressionParser.parse(args);
-            System.out.println(result.execute());
+            if (result != null) {
+                System.out.println(result.execute());
+            }
         } catch (ValidationException e) {
             System.out.println(e);
         }
