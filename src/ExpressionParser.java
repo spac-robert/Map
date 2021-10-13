@@ -2,6 +2,8 @@ import entity.ComplexExpression;
 import entity.ComplexNumber;
 import entity.Operation;
 import expression.ExpressionFactory;
+import validator.ValidationException;
+import validator.ValidatorComplexNumber;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -27,9 +29,12 @@ public class ExpressionParser {
 
     public static ComplexExpression parse(String[] args) {
         List<ComplexNumber> complexNumbers = new LinkedList<>();
-
         for (int i = 0; i < args.length && args[i] != null; i = i + 2) {
-            complexNumbers.add(parseComplexNumber(args[i]));
+            if (ValidatorComplexNumber.isValid(args[i])) {
+                complexNumbers.add(parseComplexNumber(args[i]));
+            } else {
+                throw  new ValidationException("Nu e bine");
+            }
         }
 
         Operation operation = Operation.fromString(args[1]);
