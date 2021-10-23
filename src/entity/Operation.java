@@ -1,7 +1,7 @@
 package entity;
 
 public enum Operation {
-    ADDITION("+"), DIVISION("/"), MULTIPLY("*"), SUBTRACTION("-");
+    ADDITION("+"), DIVISION("/"), MULTIPLICATION("*"), SUBTRACTION("-");
 
     private final String string;
 
@@ -19,6 +19,6 @@ public enum Operation {
     }
 
     private boolean isNotOperation(String op, String s) {
-       return !s.equals(op);
+        return !s.equals(op);
     }
 }

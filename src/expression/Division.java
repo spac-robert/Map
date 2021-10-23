@@ -12,7 +12,7 @@ public class Division extends ComplexExpression {
     }
 
     @Override
-    public ComplexNumber executeOneOperation(Operation op, ComplexNumber number, ComplexNumber arg) {
+    public ComplexNumber executeOneOperation(ComplexNumber number, ComplexNumber arg) {
         number.division(arg);
         return number;
     }

@@ -1,47 +1,39 @@
 package entity;
 
 public class ComplexNumber {
-    private Double re = 0.0;
-    private Double im = 0.0;
+    private double re;
+    private double im;
 
-    public ComplexNumber(Double re, Double im) {
+    public ComplexNumber(double re, double im) {
         this.re = re;
         this.im = im;
     }
 
-    public Double getRe() {
-        return re;
-    }
-
-    public Double getIm() {
-        return im;
-    }
-
     public void addition(ComplexNumber x) {
-        this.re += x.getRe();
-        this.im += x.getIm();
+        this.re += x.re;
+        this.im += x.im;
     }
 
     public void subtraction(ComplexNumber x) {
-        this.re -= x.getRe();
-        this.im -= x.getIm();
+        this.re -= x.re;
+        this.im -= x.im;
     }
 
     public void multiply(ComplexNumber x) {
         double re, im;
-        re = this.re * x.getRe() + (-1) * (this.im * x.getIm());
-        im = this.re * x.getIm() + x.getRe() * this.im;
+        re = this.re * x.re + (-1) * (this.im * x.im);
+        im = this.re * x.im + x.re * this.im;
         this.re = re;
         this.im = im;
     }
 
-    public void setIm(Double im) {
+    public void setIm(double im) {
         this.im = im;
     }
 
     public void division(ComplexNumber x) {
-        double sum = x.getRe() * x.getRe() + x.getIm() * x.getIm();
-        x.setIm(x.getIm() * (-1));
+        double sum = x.re * x.re + x.im * x.im;
+        x.setIm(x.im * (-1));
         multiply(x);
         this.re /= sum;
         this.im /= sum;

@@ -3,23 +3,23 @@ package entity;
 import java.util.List;
 
 public abstract class ComplexExpression {
-    public final Operation op;
-    public final ComplexNumber[] args;
+    private final Operation op;
+    private final ComplexNumber[] complexNumbers;
 
     public ComplexExpression(Operation op, List<ComplexNumber> args) {
         this.op = op;
-        this.args = args.toArray(new ComplexNumber[0]);
+        this.complexNumbers = args.toArray(new ComplexNumber[0]);
     }
 
-    public abstract ComplexNumber executeOneOperation(Operation op, ComplexNumber number, ComplexNumber arg);
+    public abstract ComplexNumber executeOneOperation(ComplexNumber number, ComplexNumber arg);
 
     //return the expression result
     public ComplexNumber execute() {
-        ComplexNumber number = args[0];
-        for (int i = 1; i< args.length && args[i] != null; i++) {
-            number = executeOneOperation(op,number,args[i]);
+        ComplexNumber number = complexNumbers[0];
+        for (int i = 1; i < complexNumbers.length && complexNumbers[i] != null; i++) {
+            number = executeOneOperation(number, complexNumbers[i]);
         }
         return number;
-        //return executeOneOperation(op);
+
     }
 }
